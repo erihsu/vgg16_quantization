@@ -6,3 +6,5 @@ The vgg16 quantization is specific for self-defined hardware architecture
 [NNQuantization](https://github.com/bgrochal/NNQuantization)
 
 [Tensorflow-Slim](https://github.com/tensorflow/models/tree/master/research/slim)
+
+[Tensorflow Model Garden](https://github.com/tensorflow/models)
