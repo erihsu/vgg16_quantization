@@ -1,1 +1,1 @@
-please download tensorflow vgg16 model from  
+please download tensorflow vgg16 model first  
