@@ -30,8 +30,11 @@ python xxx.py
 >The code is tested in python3.7.3 on MacOS 10.15 and
 
 # Result
-TBD
-
+INT8
+| | bin quantization | KL quantization |
+|:----|:----|:------|
+|Accuracy Loss|||
+|AVG Error|2.21||
 # Reference
 [1][NNQuantization](https://github.com/bgrochal/NNQuantization)\
 [2][Tensorflow-Slim](https://github.com/tensorflow/models/tree/master/research/slim)\
