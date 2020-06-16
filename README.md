@@ -26,8 +26,7 @@ python quantizer.py "checkpoints/vgg_16.ckpt" 1000 1 8
 python xxx.py
 ```
 
->Recommaded python3 version is under 3.8 because tensorflow 1.15 is not supported in higher version currently. 
->The code is tested in python3.7.3 on MacOS 10.15 and
+>Recommaded python3 version is under 3.8 because tensorflow 1.15 is not supported in higher version currently.
 
 # Result
 The result is evaluated in ILSVRC2012 validation dataset. Hardware require 16GB at least.
