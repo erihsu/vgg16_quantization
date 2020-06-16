@@ -30,11 +30,13 @@ python xxx.py
 >The code is tested in python3.7.3 on MacOS 10.15 and
 
 # Result
-INT8
-| | bin quantization | KL quantization |
+The result is evaluated in ILSVRC2012 validation dataset. Hardware require 16GB at least.
+## INT8
+|     | bin quantization | KL quantization |
 |:----|:----|:------|
-|Accuracy Loss|||
-|AVG Error|2.21||
+|Accuracy Loss|<p>Top-1:<br>Top-5:</p>||
+|Error(Avg)|2.21||
+
 # Reference
 [1][NNQuantization](https://github.com/bgrochal/NNQuantization)\
 [2][Tensorflow-Slim](https://github.com/tensorflow/models/tree/master/research/slim)\
