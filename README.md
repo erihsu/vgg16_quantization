@@ -2,10 +2,10 @@
 There are two quantization results of tensorflow VGG16 model in INT8 and FP16 format. The repository provide some script that extract weight&bias(into *.npy) from tensorflow pb model and convert *.npy back to frozen tensorflow model for accurracy evaluation after quantization.
 # Quantization solution
 ## INT8
-### min-max scaling
+### min-max scaling based quantization
 
 ## FP16
-### cut-down conversion
+### cut-down conversion quantization
 
 # Result
 The result is evaluated in ILSVRC2012 validation dataset. Hardware require 16GB at least.
