@@ -1,46 +1,17 @@
 # Ref:
 
 import numpy as np
-import math
 
 npy_file = "./vgg16.npy"
-
 model_data = np.load(npy_file,allow_pickle=True).item()
-
 useful_layer = ['conv1_1','conv1_2','conv2_1','conv2_2','conv3_1','conv3_2','conv3_3',\
                 'conv4_1','conv4_2','conv4_3','conv5_1','conv5_2','conv5_3','fc6','fc7','fc8']
-
 vgg16_int={'conv1_1':[[],[]],'conv1_2':[[],[]],'conv2_1':[[],[]],'conv2_2':[[],[]],'conv3_1':[[],[]],'conv3_2':[[],[]], \
        'conv3_3':[[],[]],'conv4_1':[[],[]],'conv4_2':[[],[]],'conv4_3':[[],[]],'conv5_1':[[],[]],'conv5_2':[[],[]], \
        'conv5_3':[[],[]],'fc6':[[],[]],'fc7':[[],[]],'fc8':[[],[]]}
 vgg16_fp={'conv1_1':[[],[]],'conv1_2':[[],[]],'conv2_1':[[],[]],'conv2_2':[[],[]],'conv3_1':[[],[]],'conv3_2':[[],[]], \
        'conv3_3':[[],[]],'conv4_1':[[],[]],'conv4_2':[[],[]],'conv4_3':[[],[]],'conv5_1':[[],[]],'conv5_2':[[],[]], \
        'conv5_3':[[],[]],'fc6':[[],[]],'fc7':[[],[]],'fc8':[[],[]]}
-
-# def weight_quantize(data):
-#     sign = 0
-#
-#     if data == 0:
-#         new_data = 0
-#         return new_data
-#
-#     if data < 0:
-#         sign = 1
-#         data = -data
-#
-#     if data < 1 and data > 0:
-#         k = math.floor(math.log(128.0 / data, 2))
-#         tmp = round(data * math.pow(2, k))
-#         new_data = tmp / math.pow(2, k)
-#     else:
-#         k = math.floor(math.log(128.0 / data, 2))
-#         tmp = round(data * math.pow(2, k))
-#         new_data = tmp / math.pow(2, k)
-#
-#     if new_data > 127: new_data = 127
-#     new_data = new_data if sign == 0 else -new_data
-#
-#     return new_data
 
 def weight_quantize(data):
     sign = 0
@@ -68,8 +39,8 @@ def float2halffp(data):
     return data
 
 for layer in useful_layer:
-    # vgg16_fp[layer][0] = float2halffp(model_data[layer][0]) # convert weights(fp16)
-    # vgg16_fp[layer][1] = float2halffp(model_data[layer][1])  # convert bias(fp16)
+    vgg16_fp[layer][0] = float2halffp(model_data[layer][0]) # convert weights(fp16)
+    vgg16_fp[layer][1] = float2halffp(model_data[layer][1])  # convert bias(fp16)
     vgg16_int[layer][0] = float2fixed(model_data[layer][0]).astype(np.float32) # convert weights(int8)
     vgg16_int[layer][1] = np.zeros(model_data[layer][1].shape,dtype=np.float32) # convert bias(int8)
 # save npy
